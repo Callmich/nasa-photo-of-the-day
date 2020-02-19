@@ -10,14 +10,14 @@ function PhotoList() {
 
     useEffect(() => {
         getPhoto();
-    },[date] )
+    },[date])
 
     const getPhoto = async () => {
-        await axios.get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${date}`)
-        .then(response => {console.log(response.data);
-            setPhotos(response.data);})
-        .catch(error => [console.log("No Data", error)]);
+        const response = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${date}`);
+        await setPhotos(response.data)
+        
         }
+        
 
     // useEffect(()=> {
     //     axios
@@ -34,9 +34,9 @@ function PhotoList() {
     }
 
     const getSearch = e => {
-        e.preventDefualt();
+        e.preventDefault();
         setDate(search);
-        setSearch("");
+        // setSearch("");
     }
 
     return (
