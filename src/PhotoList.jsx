@@ -9,7 +9,7 @@ function PhotoList() {
 
     useEffect(()=> {
         axios
-            // .get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${date}`)
+            .get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${date}`)
             .then(response => {
                 console.log(response.data);
                 setPhotos(response.data);
@@ -19,9 +19,10 @@ function PhotoList() {
 
     return (
         <div>
-            {photos.map(pic => {
+            {photos.map(function(pic, index) {
                 return (
-                    <PhotoCard 
+                    <PhotoCard
+                        key={index} 
                         picture={pic.url}
                         date={pic.date}
                         title={pic.title}
