@@ -1,11 +1,12 @@
 import React from "react";
+import PhotoCard from "./PhotoCard";
 
 function PhotoList() {
 
 
     return (
         <div>
-            <p>This is the Photo List</p>
+            <PhotoCard />
         </div>
     )
 
