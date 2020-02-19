@@ -18,18 +18,14 @@ function PhotoList() {
     }, []);
 
     return (
-        <div>
-            {photos.map(function(pic, index) {
-                return (
-                    <PhotoCard
-                        key={index} 
-                        picture={pic.url}
-                        date={pic.date}
-                        title={pic.title}
-                        fact={pic.explanation}
-                    />
-                )
-            })}
+        <div>{
+            <PhotoCard
+                picture={photos.url}
+                date={photos.date}
+                title={photos.title}
+                fact={photos.explanation}
+            />
+            }
         </div>
     )
 

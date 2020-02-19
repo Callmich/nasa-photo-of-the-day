@@ -16,16 +16,9 @@ const PhotoCard = props => {
             <div className="funFact">
                 <p>{props.fact}</p>
             </div>
-
-         <p>This is the Photo Card</p>
         </div>
     )
 
 };
 
 export default PhotoCard;
-
-// picture={pic.url}
-// date={pic.date}
-// title={pic.title}
-// fact={pic.explanation}
