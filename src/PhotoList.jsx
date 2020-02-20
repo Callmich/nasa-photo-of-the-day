@@ -5,6 +5,10 @@ import Header from "./PhotoCardPieces/Header";
 import Search from "./PhotoCardPieces/Search";
 import Photo from "./PhotoCardPieces/Photo";
 import Fact from "./PhotoCardPieces/Fact";
+import {
+    Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle
+  } from 'reactstrap';
 
 function PhotoList() {
 
@@ -44,16 +48,29 @@ function PhotoList() {
 
     return (
         <div>
-            <Header 
-            date={photos.date} 
-            title={photos.title}/>
-            <Search 
-            updateSearch={updateSearch}
-            getSearch={getSearch}/>
-            <Photo 
-            picture={photos.url}/>
-            <Fact 
-            fact={photos.explanation}/>
+            <Card>
+                <CardBody>
+                    <CardTitle>            
+                        <Header 
+                            date={photos.date} 
+                            title={photos.title}/>
+                    </CardTitle>
+
+                    <CardSubtitle>            
+                        <Search 
+                            updateSearch={updateSearch}
+                            getSearch={getSearch}/>
+                    </CardSubtitle>
+                    </CardBody>
+                        <Photo 
+                            picture={photos.url}/>  
+                    <CardBody>
+                    <CardText>
+                        <Fact 
+                            fact={photos.explanation}/>
+                    </CardText>
+                </CardBody>
+            </Card>
         </div>
     )
 
