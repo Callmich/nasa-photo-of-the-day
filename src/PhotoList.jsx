@@ -1,6 +1,10 @@
 import React, { useState, useEffect} from "react";
 import axios from "axios";
 import PhotoCard from "./PhotoCard";
+import Header from "./PhotoCardPieces/Header";
+import Search from "./PhotoCardPieces/Search";
+import Photo from "./PhotoCardPieces/Photo";
+import Fact from "./PhotoCardPieces/Fact";
 
 function PhotoList() {
 
@@ -14,8 +18,7 @@ function PhotoList() {
 
     const getPhoto = async () => {
         const response = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${date}`);
-        await setPhotos(response.data)
-        
+        await setPhotos(response.data)  
         }
         
 
@@ -40,16 +43,17 @@ function PhotoList() {
     }
 
     return (
-        <div>{
-            <PhotoCard
-                picture={photos.url}
-                date={photos.date}
-                title={photos.title}
-                fact={photos.explanation}
-                updateSearch={updateSearch}
-                getSearch={getSearch}
-            />
-            }
+        <div>
+            <Header 
+            date={photos.date} 
+            title={photos.title}/>
+            <Search 
+            updateSearch={updateSearch}
+            getSearch={getSearch}/>
+            <Photo 
+            picture={photos.url}/>
+            <Fact 
+            fact={photos.explanation}/>
         </div>
     )
 
